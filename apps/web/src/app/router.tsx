@@ -8,6 +8,12 @@ import { ChangePasswordPage } from '@/features/auth/ChangePasswordPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { FullPageSpinner } from '@/components/common/FullPageSpinner';
+const OnboardingWizard = React.lazy(() =>
+  import('@/features/admin/canteens/OnboardingWizard').then((m) => ({ default: m.OnboardingWizard }))
+);
+const CanteenDetailPage = React.lazy(() =>
+  import('@/features/admin/canteens/CanteenDetailPage').then((m) => ({ default: m.CanteenDetailPage }))
+);
 
 // Lazy-loaded Role Shells & Page subtrees
 const StudentShell = React.lazy(() =>
@@ -193,6 +199,22 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<FullPageSpinner />}>
             <CanteenListPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'canteens/new',
+        element: (
+          <Suspense fallback={<FullPageSpinner />}>
+            <OnboardingWizard />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'canteens/:id',
+        element: (
+          <Suspense fallback={<FullPageSpinner />}>
+            <CanteenDetailPage />
           </Suspense>
         ),
       },

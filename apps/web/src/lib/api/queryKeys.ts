@@ -24,7 +24,11 @@ export const queryKeys = {
   admin: {
     overview: ['admin', 'overview'] as const,
     canteens: ['admin', 'canteens'] as const,
+    canteen: (id: string) => ['admin', 'canteens', id] as const,
     staff: ['admin', 'staff'] as const,
+    staffList: (canteenId?: string) => ['admin', 'staff', canteenId ?? 'all'] as const,
     settlements: (period?: string) => ['admin', 'settlements', period] as const,
+    settlementEntries: (id: string) => ['admin', 'settlement-entries', id] as const,
   },
+  analytics: (name: string, params: object) => ['analytics', name, params] as const,
 };

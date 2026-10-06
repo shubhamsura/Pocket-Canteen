@@ -9,5 +9,18 @@
     "dev:web": "npm run dev --workspace=apps/web",
     "build:web": "npm run build --workspace=apps/web",
     "test:web": "npm run test --workspace=apps/web"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "@tanstack/react-table": "^9.2.6",
+    "date-fns": "^4.4.0",
+    "papaparse": "^5.7.0",
+    "react-hook-form": "^7.89.0",
+    "recharts": "^3.10.1",
+    "sonner": "^2.0.8",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/papaparse": "^5.5.2"
   }
 }
